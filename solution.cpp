@@ -1,12 +1,13 @@
 #include "solution.h"
 
-Solution::Solution(std::vector<std::vector<float>> elements){
+Solution::Solution(std::vector<std::vector<float>> elements, std::vector<std::vector<float>> elementsOutside){
   elements_ = elements;
+  elementsOutside_ = elementsOutside;
 }
 
 void Solution::Print(){
   for (int i = 0; i < elements_.size(); i++) {
-    std::cout << "( ";
+    std::cout << "(";
     for(int j = 0; j < elements_[0].size(); j++) {
       std::cout << elements_[i][j] << "  ";
     }

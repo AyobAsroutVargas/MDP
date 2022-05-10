@@ -58,6 +58,6 @@ Solution Greedy::constructSolution(int m) {
     centroid = center(solution);
     count++;
   }
-  Solution result(solution);
+  Solution result(solution, tmpElements);
   return result;
 }

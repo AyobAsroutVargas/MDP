@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -g -Wall
-DEPS = file-loader.h point.h problem.h greedy.h solution.h
-OBJ = main.o file-loader.o point.o problem.o greedy.o solution.o
+DEPS = file-loader.h point.h problem.h greedy.h solution.h local_search.h
+OBJ = main.o file-loader.o point.o problem.o greedy.o solution.o local_search.o
 
 
 %.o: %.cc $(DEPS)
