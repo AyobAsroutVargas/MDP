@@ -1,7 +1,6 @@
 #include "local_search.h"
 
-Swap::Swap(Problem problem) {
-  problem_ = problem;
+Swap::Swap() {
 }
 
 float Swap::distance(std::vector<float> element1, std::vector<float> element2){
@@ -79,8 +78,7 @@ Solution Swap::Apply(Solution initialSolution) {
     bestSolution.elements_[extractIndex] = initialSolution.elementsOutside_[insertIndex];
     bestSolution.elementsOutside_[insertIndex] = tmpSwap;
   }
-
-
+  
   return bestSolution;
 }
 

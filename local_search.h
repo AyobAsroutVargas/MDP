@@ -9,7 +9,7 @@
 
 class Swap {
  public:
-  Swap(Problem problem);
+  Swap();
   Solution Apply(Solution initialSolution);
   Solution search(Solution initialSolution);
   float distance(std::vector<float>, std::vector<float>);
