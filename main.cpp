@@ -3,6 +3,7 @@
 #include "greedy.h"
 #include "local_search.h"
 #include "grasp.h"
+#include "branch_bound.h"
 
 int main(int argc, char* argv[]) {
   std::string filename = "max_div_15_2.txt";
@@ -16,6 +17,10 @@ int main(int argc, char* argv[]) {
   Greedy greedy(problem);
   Swap* swap = new Swap();
   Grasp grasp(problem, swap);
+
+  BranchBound branchBound(problem.elements_, 4, 1, 1, 20, false);
+
+  // Greedy:
 
   // std::cout << "Greedy:\n";
   // Solution greedySolution_2(greedy.constructSolution(2));
@@ -59,91 +64,102 @@ int main(int argc, char* argv[]) {
   // swapSolution_5.Print();
   // std::cout << "\n\n";
 
-  std::cout << "Grasp:\n";
+  // Grasp:
 
-  Solution greedySolution_2_10_2(grasp.solve(2, 10, 2));
-  std::cout << "m = 2, iter 10 lrc = 2:\n";
-  greedySolution_2_10_2.Print();
-  std::cout << "\n\n";
+  // std::cout << "Grasp:\n";
 
-  Solution greedySolution_2_10_3(grasp.solve(2, 10, 3));
-  std::cout << "m = 2, iter 10 lrc = 3:\n";
-  greedySolution_2_10_3.Print();
-  std::cout << "\n\n";
+  // Solution greedySolution_2_10_2(grasp.solve(2, 10, 2));
+  // std::cout << "m = 2, iter 10 lrc = 2:\n";
+  // greedySolution_2_10_2.Print();
+  // std::cout << "\n\n";
 
-  Solution greedySolution_2_20_2(grasp.solve(2, 20, 2));
-  std::cout << "m = 2, iter 20 lrc = 2:\n";
-  greedySolution_2_20_2.Print();
-  std::cout << "\n\n";
+  // Solution greedySolution_2_10_3(grasp.solve(2, 10, 3));
+  // std::cout << "m = 2, iter 10 lrc = 3:\n";
+  // greedySolution_2_10_3.Print();
+  // std::cout << "\n\n";
 
-  Solution greedySolution_2_20_3(grasp.solve(2, 20, 3));
-  std::cout << "m = 2, iter 20 lrc = 3:\n";
-  greedySolution_2_20_3.Print();
-  std::cout << "\n\n";
-  std::cout << "\n\n";
+  // Solution greedySolution_2_20_2(grasp.solve(2, 20, 2));
+  // std::cout << "m = 2, iter 20 lrc = 2:\n";
+  // greedySolution_2_20_2.Print();
+  // std::cout << "\n\n";
 
-
-  Solution greedySolution_3_10_2(grasp.solve(3, 10, 2));
-  std::cout << "m = 3, iter 10 lrc = 2:\n";
-  greedySolution_3_10_2.Print();
-  std::cout << "\n\n";
-
-  Solution greedySolution_3_10_3(grasp.solve(3, 10, 3));
-  std::cout << "m = 3, iter 10 lrc = 3:\n";
-  greedySolution_3_10_3.Print();
-  std::cout << "\n\n";
-
-  Solution greedySolution_3_20_2(grasp.solve(3, 20, 2));
-  std::cout << "m = 3, iter 20 lrc = 2:\n";
-  greedySolution_3_20_2.Print();
-  std::cout << "\n\n";
-
-  Solution greedySolution_3_20_3(grasp.solve(3, 20, 3));
-  std::cout << "m = 3, iter 20 lrc = 3:\n";
-  greedySolution_3_20_3.Print();
-  std::cout << "\n\n";
-  std::cout << "\n\n";
+  // Solution greedySolution_2_20_3(grasp.solve(2, 20, 3));
+  // std::cout << "m = 2, iter 20 lrc = 3:\n";
+  // greedySolution_2_20_3.Print();
+  // std::cout << "\n\n";
+  // std::cout << "\n\n";
 
 
-  Solution greedySolution_4_10_2(grasp.solve(4, 10, 2));
-  std::cout << "m = 4, iter 10 lrc = 2:\n";
-  greedySolution_4_10_2.Print();
-  std::cout << "\n\n";
+  // Solution greedySolution_3_10_2(grasp.solve(3, 10, 2));
+  // std::cout << "m = 3, iter 10 lrc = 2:\n";
+  // greedySolution_3_10_2.Print();
+  // std::cout << "\n\n";
 
-  Solution greedySolution_4_10_3(grasp.solve(4, 10, 3));
-  std::cout << "m = 4, iter 10 lrc = 3:\n";
-  greedySolution_4_10_3.Print();
-  std::cout << "\n\n";
+  // Solution greedySolution_3_10_3(grasp.solve(3, 10, 3));
+  // std::cout << "m = 3, iter 10 lrc = 3:\n";
+  // greedySolution_3_10_3.Print();
+  // std::cout << "\n\n";
 
-  Solution greedySolution_4_20_2(grasp.solve(4, 20, 2));
-  std::cout << "m = 4, iter 20 lrc = 2:\n";
-  greedySolution_4_20_2.Print();
-  std::cout << "\n\n";
+  // Solution greedySolution_3_20_2(grasp.solve(3, 20, 2));
+  // std::cout << "m = 3, iter 20 lrc = 2:\n";
+  // greedySolution_3_20_2.Print();
+  // std::cout << "\n\n";
 
-  Solution greedySolution_4_20_3(grasp.solve(4, 20, 3));
-  std::cout << "m = 4, iter 20 lrc = 3:\n";
-  greedySolution_4_20_3.Print();
-  std::cout << "\n\n";
-  std::cout << "\n\n";
+  // Solution greedySolution_3_20_3(grasp.solve(3, 20, 3));
+  // std::cout << "m = 3, iter 20 lrc = 3:\n";
+  // greedySolution_3_20_3.Print();
+  // std::cout << "\n\n";
+  // std::cout << "\n\n";
 
 
-  Solution greedySolution_5_10_2(grasp.solve(5, 10, 2));
-  std::cout << "m = 5, iter 10 lrc = 2:\n";
-  greedySolution_5_10_2.Print();
-  std::cout << "\n\n";
+  // Solution greedySolution_4_10_2(grasp.solve(4, 10, 2));
+  // std::cout << "m = 4, iter 10 lrc = 2:\n";
+  // greedySolution_4_10_2.Print();
+  // std::cout << "\n\n";
 
-  Solution greedySolution_5_10_3(grasp.solve(5, 10, 3));
-  std::cout << "m = 5, iter 10 lrc = 3:\n";
-  greedySolution_5_10_3.Print();
-  std::cout << "\n\n";
+  // Solution greedySolution_4_10_3(grasp.solve(4, 10, 3));
+  // std::cout << "m = 4, iter 10 lrc = 3:\n";
+  // greedySolution_4_10_3.Print();
+  // std::cout << "\n\n";
 
-  Solution greedySolution_5_20_2(grasp.solve(5, 20, 2));
-  std::cout << "m = 5, iter 20 lrc = 2:\n";
-  greedySolution_5_20_2.Print();
-  std::cout << "\n\n";
+  // Solution greedySolution_4_20_2(grasp.solve(4, 20, 2));
+  // std::cout << "m = 4, iter 20 lrc = 2:\n";
+  // greedySolution_4_20_2.Print();
+  // std::cout << "\n\n";
 
-  Solution greedySolution_5_20_3(grasp.solve(5, 20, 3));
-  std::cout << "m = 5, iter 20 lrc = 3:\n";
-  greedySolution_5_20_3.Print();
+  // Solution greedySolution_4_20_3(grasp.solve(4, 20, 3));
+  // std::cout << "m = 4, iter 20 lrc = 3:\n";
+  // greedySolution_4_20_3.Print();
+  // std::cout << "\n\n";
+  // std::cout << "\n\n";
+
+
+  // Solution greedySolution_5_10_2(grasp.solve(5, 10, 2));
+  // std::cout << "m = 5, iter 10 lrc = 2:\n";
+  // greedySolution_5_10_2.Print();
+  // std::cout << "\n\n";
+
+  // Solution greedySolution_5_10_3(grasp.solve(5, 10, 3));
+  // std::cout << "m = 5, iter 10 lrc = 3:\n";
+  // greedySolution_5_10_3.Print();
+  // std::cout << "\n\n";
+
+  // Solution greedySolution_5_20_2(grasp.solve(5, 20, 2));
+  // std::cout << "m = 5, iter 20 lrc = 2:\n";
+  // greedySolution_5_20_2.Print();
+  // std::cout << "\n\n";
+
+  // Solution greedySolution_5_20_3(grasp.solve(5, 20, 3));
+  // std::cout << "m = 5, iter 20 lrc = 3:\n";
+  // greedySolution_5_20_3.Print();
+  // std::cout << "\n\n";
+
+  // Branch and bound:
+
+  std::cout << "Branch and bound:\n";
+  branchBound.solve();
+  std::cout << "Valor de la solucion: " << branchBound.bestSolutionValue << "\n";
+  Solution babSol(branchBound.myTree->bestSolution, branchBound.noInSolution);
+  babSol.Print();
   std::cout << "\n\n";
 }
