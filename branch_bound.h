@@ -7,7 +7,7 @@
 
 class BranchBound {
  public:
-  BranchBound(std::vector<std::vector<float>> myVectors, int m, int cardi, int stopCriteria, int maxIterations, bool depth);
+  BranchBound(std::vector<std::vector<float>> myVectors, int m, bool depth);
   ~BranchBound();
 
   std::vector<std::vector<float>> vectorsData;  // Datos del problema (vectores)
